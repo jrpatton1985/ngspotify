@@ -1,0 +1,11 @@
+{
+  "name": "ngspotify",
+  "version": "1.0.0",
+  "description": "Angular 2 app that uses Spotify Web API to find artists and display albums and track listings.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
