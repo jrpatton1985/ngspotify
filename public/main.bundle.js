@@ -74,7 +74,7 @@ var SpotifyService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         // return this._http.get('/spotifytoken', {headers: headers})
-        return this._http.get('http://localhost:8080/spotifytoken', { headers: headers })
+        return this._http.get('spotifytoken', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     SpotifyService.prototype.loadToken = function () {
