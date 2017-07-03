@@ -73,7 +73,8 @@ var SpotifyService = (function () {
     SpotifyService.prototype.getAccessToken = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this._http.get('/spotifytoken', { headers: headers })
+        // return this._http.get('/spotifytoken', {headers: headers})
+        return this._http.get('http://localhost:8080/spotifytoken', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     SpotifyService.prototype.loadToken = function () {
@@ -303,7 +304,6 @@ var AlbumComponent = (function () {
             _this._spotifyService.getAlbum(id)
                 .subscribe(function (album) {
                 _this.album = album;
-                console.log(_this.album);
             });
         });
     };
@@ -491,7 +491,7 @@ module.exports = "<div class=\"jumbotron\">\r\n  <h1>About ngSpotify</h1>\r\n  <
 /***/ 667:
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"album\" *ngIf=\"album\">\r\n  <header class=\"album-header well\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-4\">\r\n        <div *ngIf=\"album.images.length > 0\">\r\n          <img class=\"album-thumb\" src=\"{{album.images[0].url}}\" alt=\"\">\r\n        </div>\r\n      </div>\r\n      <div class=\"col-md-8\">\r\n        <h4 *ngIf=\"album.artists.length > 0\">\r\n          <span *ngFor=\"let artist of album.artists\">\r\n            {{artist.name}}\r\n          </span>\r\n        </h4>\r\n        <h2>{{album.name}}</h2>\r\n        <h5>Release Date: {{album.release_date}}</h5>\r\n        <a class=\"btn btn-success\" target=\"_blank\" href=\"{{album.external_urls.spotify}}\">View in Spotify</a>\r\n      </div>\r\n    </div>\r\n  </header>\r\n\r\n  <div class=\"album-tracks\">\r\n    <h2>Album Tracks</h2>\r\n    <div *ngFor=\"let track of album.tracks.items\">\r\n      <div class=\"well\">\r\n        <h5>{{track.track_number}}. {{track.name}}</h5>\r\n        <a *ngIf=\"track.preview_url !== null\" href=\"{{track.preview_url}}\" target=\"_blank\">Preview</a>\r\n        <span *ngIf=\"track.preview_url !== null\"> | </span>\r\n        <a *ngIf=\"track.external_urls !== null\" href=\"{{track.external_urls.spotify}}\" target=\"_blank\">Listen on Spotify</a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div id=\"album\" *ngIf=\"album\">\r\n  <header class=\"album-header well\">\r\n    <div class=\"row\">\r\n      <div class=\"col-md-4\">\r\n        <div *ngIf=\"album.images.length > 0\">\r\n          <img class=\"album-thumb\" src=\"{{album.images[0].url}}\" alt=\"\">\r\n        </div>\r\n      </div>\r\n      <div class=\"col-md-8\">\r\n        <h4 *ngIf=\"album.artists.length > 0\">\r\n          <span *ngFor=\"let artist of album.artists\">\r\n            {{artist.name}}\r\n          </span>\r\n        </h4>\r\n        <h2>{{album.name}}</h2>\r\n        <h5>Release Date: {{album.release_date}}</h5>\r\n        <a class=\"btn btn-success\" target=\"_blank\" href=\"{{album.external_urls.spotify}}\">View in Spotify</a>\r\n      </div>\r\n    </div>\r\n  </header>\r\n\r\n  <div class=\"album-tracks\">\r\n    <h2>Album Tracks</h2>\r\n    <div *ngFor=\"let track of album.tracks.items\">\r\n      <div class=\"well\">\r\n        <h5>{{track.track_number}}. {{track.name}}</h5>\r\n        <a *ngIf=\"track.preview_url !== null\" href=\"{{track.preview_url}}\" target=\"_blank\">Preview</a>\r\n        <!-- <button *ngIf=\"track.preview_url !== null\" class=\"soundBt\" name=\"{{track.preview_url}}\"></button> -->\r\n        <span *ngIf=\"track.preview_url !== null\"> | </span>\r\n        <a *ngIf=\"track.external_urls !== null\" href=\"{{track.external_urls.spotify}}\" target=\"_blank\">Listen on Spotify</a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
